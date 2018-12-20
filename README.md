@@ -13,6 +13,8 @@ sample project for UFT 14.03
     ```
     - Path to result: C:\uft-samples\uft-sample-14.03\qasymphony.com\result
     - Result Parser: Unified Funtional Testing (UFT)
+    - Working directory: left it empty
+ 
 # How it works
 Please refer to [how-it-works.gif](./images/how-it-works.gif)
 
