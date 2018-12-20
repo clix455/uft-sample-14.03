@@ -5,7 +5,7 @@ sample project for UFT 14.03
 # How to use
 1. Clone this project, for example: C:\uft-samples\uft-sample-14.03
 2. Go to cloned folder at step #1
-3. Create a Universal Agent with flowing configuration[./images/universal-agent-with-uft.png](./images/universal-agent-with-uft.png)
+3. Create a Universal Agent with flowing configuration ![universal-agent-with-uft.png](/images/universal-agent-with-uft.png)
     - Executor: batch
     - Content: 
     ```
