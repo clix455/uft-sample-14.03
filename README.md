@@ -1,5 +1,7 @@
 # uft-sample-14.03
 sample project for UFT 14.03
+- This document for Agent Type: Unified Functional Testing
+- For Universal Agent, refer [Universal.md](./Universal.md)
 # Prerequisite
 1. qTest Automation Host (2.2.1 or newer) and UFT 14.03, installed on host
 # How to use
