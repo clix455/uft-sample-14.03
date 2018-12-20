@@ -1,5 +1,5 @@
 # uft-sample-14.03
-sample project for UFT 14.03
+This is a sample UFT project that is supposed to be executed with UFT 14.03
 - This document is for Agent type: Unified Functional Testing
 - If you want to in integrate this UFT project with Universal Agent, refer to [Universal.md](./Universal.md)
 # Prerequisite
