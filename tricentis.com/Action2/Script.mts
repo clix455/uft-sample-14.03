@@ -1,0 +1,1 @@
+﻿Browser("Agile Development Testing").Page("Agile Development Testing").Image("qTest-screen").Click @@ hightlight id_;_Browser("Agile Development Testing").Page("Agile Development Testing").Image("qTest-screen")_;_script infofile_;_ZIP::ssf1.xml_;_

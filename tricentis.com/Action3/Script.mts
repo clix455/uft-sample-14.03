@@ -1,0 +1,1 @@
+﻿Browser("Test Automation Management").Page("Test Automation Management").Link("Start a Free Trial").Click @@ hightlight id_;_Browser("Test Automation Management").Page("Test Automation Management").Link("Start a Free Trial")_;_script infofile_;_ZIP::ssf1.xml_;_
