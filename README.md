@@ -14,5 +14,5 @@ sample project for UFT 14.03
     - Path to result: C:\uft-samples\uft-sample-14.03\qasymphony.com\result
     - Result Parser: Unified Funtional Testing (UFT)
 # Run kickoff script
-    - [./images/how-it-works.gif]
+ ![how it works](/images/how-it-works.gif)
 
