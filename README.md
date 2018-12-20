@@ -13,7 +13,7 @@ sample project for UFT 14.03
     - Ex: If location of usr file is: C:\uft-samples\uft-sample-14.03\qasymphony.com\qasymphony.com.usr, then Direcory must be C:\uft-samples\uft-sample-14.03
         
 # How it works
-1. Scan click Save and Scan to create test case ![scan_create_test_case.png](/images/scan_create_test_case.png)
+1. Create test case from UFT project ![scan_create_test_case.png](/images/scan_create_test_case.png)
 2. Create test suite from the test case
 3. Schedule the test run (created at #2) ![schedule_test-run.png](/images/schedule_test-run.png)
 4. Navigate to UI of qTest Automation Host, click "Poll Now" button, the host should kickoff the test project run
