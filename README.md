@@ -1,5 +1,7 @@
 # uft-sample-14.03
 sample project for UFT 14.03
+- This document for Agent Type: Unified Functional Testing
+- For Universal Agent, refer [Universal.md](./Universal.md)
 # Prerequisite
 1. qTest Automation Host (2.2.1 or newer) and UFT 14.03, installed on host
 2. Enable Automation Setting on qTest and add mapping status [!enable_automation_map_status.png](/images/enable_automation_map_status.png)
@@ -11,10 +13,10 @@ sample project for UFT 14.03
     - Include: **/*.usr
 # Note on agent configuration
     - Value of Directory should be parent location of UFT project
-    - Ex: If location of usr file is: E:\QASProjects\uft-sample-14.03\qasymphony.com\qasymphony.com.usr, then Direcory must be E:\QASProjects\uft-sample-14.03
+    - Ex: If location of usr file is: C:\uft-samples\uft-sample-14.03\qasymphony.com\qasymphony.com.usr, then Direcory must be C:\uft-samples\uft-sample-14.03
         
 # How it works
-1. Scan click Save and Scan to create test case ![scan_create_test_case.png](/images/scan_create_test_case.png)
+1. Create test case from UFT project ![scan_create_test_case.png](/images/scan_create_test_case.png)
 2. Create test suite from the test case
 3. Schedule the test run (created at #2) ![schedule_test-run.png](/images/schedule_test-run.png)
 4. Navigate to UI of qTest Automation Host, click "Poll Now" button, the host should kickoff the test project run
