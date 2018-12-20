@@ -1,6 +1,6 @@
 # uft-sample-14.03
 This is a sample UFT project that is supposed to be executed with UFT 14.03
-- Follow this guide to create Unified Functional Testing agent in automtion host
+- Follow this guide to create Unified Functional Testing agent in qTest Automation Host
 - If you want to in integrate this UFT project with Universal Agent, refer to this guide [Universal.md](./Universal.md)
 
 # Prerequisite
