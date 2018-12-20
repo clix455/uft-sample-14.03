@@ -4,7 +4,7 @@ sample project for UFT 14.03
 - For Universal Agent, refer [Universal.md](./Universal.md)
 # Prerequisite
 1. qTest Automation Host (2.2.1 or newer) and UFT 14.03, installed on host
-2. Enable Automation Setting on qTest and add mapping status ![enable_automation_map_status.png](/images/enable_automation_map_status.pngs)
+2. Enable Automation Setting on qTest and add mapping status ![enable_automation_map_status.png](/images/enable_automation_map_status.png)
 # How to use
 1. Clone this project to local folder, for example: C:\uft-samples\uft-sample-14.03
 2. Navigate to UI of qTest Automation Host
