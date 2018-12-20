@@ -17,7 +17,7 @@ This is a sample UFT project that is supposed to be executed with UFT 14.03
 
 # Note on agent configuration
     - Value of Directory should be parent location of UFT project
-    - For example: if the location of usr file is: C:\uft-samples\uft-sample-14.03\qasymphony.com\qasymphony.com.usr, then Direcory must be set to C:\uft-samples\uft-sample-14.03
+    - For example: if the location of usr file is C:\uft-samples\uft-sample-14.03\qasymphony.com\qasymphony.com.usr, then Direcory must be set to C:\uft-samples\uft-sample-14.03
         
 # How it works
 1. Scan and create test case from UFT project to qTest Manager ![scan_create_test_case.png](/images/scan_create_test_case.png)
