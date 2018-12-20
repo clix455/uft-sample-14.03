@@ -10,9 +10,10 @@ This is a sample UFT project that is supposed to be executed with UFT 14.03
 # How to use
 1. Clone this project to local folder, for example: C:\uft-samples\uft-sample-14.03
 2. Navigate to UI of qTest Automation Host
-3. Create an agent which is of type: Unified Functional Testing ![uft-agent.png](/images/uft-agent.png)
+3. Create an agent which is of type: Unified Functional Testing
     - Directory: C:\uft-samples\uft-sample-14.03
     - Include: **/*.usr
+![uft-agent.png](/images/uft-agent.png)
 
 # Note on agent configuration
     - Value of Directory should be parent location of UFT project
