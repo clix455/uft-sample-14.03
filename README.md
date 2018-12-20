@@ -10,7 +10,7 @@ sample project for UFT 14.03
     - Include: **/*.usr
 # Note on agent configuration
     - Value of Directory should be parent location of UFT project
-    - Ex: If location of usr file is: E:\QASProjects\uft-sample-14.03\qasymphony.com\qasymphony.com.usr, then Direcory must be E:\QASProjects\uft-sample-14.03
+    - Ex: If location of usr file is: C:\uft-samples\uft-sample-14.03\qasymphony.com\qasymphony.com.usr, then Direcory must be C:\uft-samples\uft-sample-14.03
         
 # How it works
 1. Scan click Save and Scan to create test case ![scan_create_test_case.png](/images/scan_create_test_case.png)
