@@ -13,7 +13,7 @@ console.log('--- Working directory: ', workingDir);
 // NOTE: by default, the result fill be located at ${working directory}/test-results
 let resultsFolder = path.resolve(`${workingDir}`, 'test-results');
 
-// pre-condition - add libary to scan uft projects
+// install `globby` node module to scan uft projects located in sub-folders
 fs.writeFileSync(`${__dirname}/package.json`, `{"name": "uft-nodejs", "version": "1.0.0", "dependencies": {"globby": "8.0.1"}}`);
 let nodeJSExe = process.env.PATH_TO_NODE_JS;
 let nodeJsDir = path.resolve(nodeJSExe.replace(/['"]+/g, ''), '..');
