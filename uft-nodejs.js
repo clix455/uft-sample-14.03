@@ -10,7 +10,7 @@ let workingDir = process.env.WORKING_DIR;
 console.log('--- Working directory: ', workingDir);
 
 // results folder contains all currently executed results to submit logs to qTest
-// NOTE: you can change result path to another folder
+// NOTE: you can change result path to another folde, DEFAULT is ${working directory}/test-results
 let resultsFolder = path.resolve(`${workingDir}`, 'test-results');
 
 // pre-condition - add libary to scan uft projects
