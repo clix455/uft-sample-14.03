@@ -23,7 +23,7 @@ execSync(`${npmExe} install`, { stdio: 'inherit', cwd: __dirname });
 
 const globby = require('globby');
 
-// create test results folder
+// create test results folder. If it already exists, deletes it and re-create it again.
 if (!fs.existsSync(resultsFolder)) {
   fs.mkdirSync(resultsFolder);
 } else {
