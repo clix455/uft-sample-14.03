@@ -23,6 +23,17 @@ execSync(`${npmExe} install`, { stdio: 'inherit', cwd: __dirname });
 
 const globby = require('globby');
 
+// create test results folder
+if (!fs.existsSync(resultsFolder)) {
+  fs.mkdirSync(resultsFolder);
+} else {
+  execSync(`rmdir /s /q ${resultsFolder}`);
+  fs.mkdirSync(resultsFolder);
+}
+
+// get automation content from magic variable TESTCASES_AC
+let testcases_AC = $TESTCASES_AC ? $TESTCASES_AC.split(',') : [];
+
 function executeTest(usrFile) {
   let extension = path.extname(usrFile);
   let projectName = path.basename(usrFile, extension);
@@ -34,17 +45,6 @@ function executeTest(usrFile) {
   console.log(`*** Executing command: ${command} ***`);
   execSync(command, { stdio: 'inherit' });
 }
-
-// create test results folder
-if (!fs.existsSync(resultsFolder)) {
-  fs.mkdirSync(resultsFolder);
-} else {
-  execSync(`rmdir /s /q ${resultsFolder}`);
-  fs.mkdirSync(resultsFolder);
-}
-
-// get automation content from magic variable TESTCASES_AC
-let testcases_AC = $TESTCASES_AC ? $TESTCASES_AC.split(',') : [];
 
 /**
  * Run specific UFT tests from schedule
