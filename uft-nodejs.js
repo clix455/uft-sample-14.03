@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const { execSync } = require('child_process');
 
-// path to the qtp script
+// this is the path to the qtp.vbs script
 // NOTE: change the qtp script path to reflect the actual path in your host machine
 let qtpScriptPath = 'D:\\agentctl-2.2.1\\build\\qautomation\\lib\\bin\\qtp.vbs';
 
@@ -10,7 +10,7 @@ let workingDir = process.env.WORKING_DIR;
 console.log('--- Working directory: ', workingDir);
 
 // results folder contains all currently executed results to submit logs to qTest
-// NOTE: you can change result path to another folder, DEFAULT is ${working directory}/test-results
+// NOTE: by default, the result fill be located at ${working directory}/test-results
 let resultsFolder = path.resolve(`${workingDir}`, 'test-results');
 
 // pre-condition - add libary to scan uft projects
@@ -31,24 +31,35 @@ if (!fs.existsSync(resultsFolder)) {
   fs.mkdirSync(resultsFolder);
 }
 
-// get automation content from magic variable TESTCASES_AC
+// Automation content is the identifier of an automated Test Run in qTest Manager.
+// In the context of UFT, each automation content contains the name of the usr script, e.g. LoginFlights
+// We will try to get automation content(s) from magic variable TESTCASES_AC, whose values are under comma separated string
+// Example values $TESTCASES_AC: LoginFlights.usr,Sample1.usr,Sample2.usr
 let testcases_AC = $TESTCASES_AC ? $TESTCASES_AC.split(',') : [];
 
+
+// This function executes a specific UFT script (the .usr file), what it does is to launch a
+// separate process to executes qtp.vbs script defined in the variable qtpScriptPath
 function executeTest(usrFile) {
   let extension = path.extname(usrFile);
   let projectName = path.basename(usrFile, extension);
   let uftProjectPath = path.resolve(usrFile, '..');
   let resultFolder = path.resolve(resultsFolder, projectName);
   fs.mkdirSync(resultFolder);
+  
+  // compose the command to be executed
   command = `cscript ${qtpScriptPath} /run-path:${uftProjectPath} /result-path:${resultFolder}`;
-  // execute the test sequentially
+  // execute the test
   console.log(`*** Executing command: ${command} ***`);
   execSync(command, { stdio: 'inherit' });
 }
 
 /**
- * Run specific UFT tests from schedule
- * If not, scan and run all uft tests from working directory
+ * Kick off UFT test. What it does is to resolve the value of `testcases_AC` variable and validate:
+ * Case 1: if that variable has value(s) meaning then there is/are test run(s) being scheduled in qTest Manager
+ *   -- executes the .usr script identified by the automation content
+ * Case 2: the value of testcases_AC is empty meaning no test runs being scheduled: 
+ *   -- scan and executes all the .usr scripts located in the working directory
  */
 if (testcases_AC && testcases_AC.length > 0) {
   for (let testcase_AC of testcases_AC) {
@@ -58,7 +69,8 @@ if (testcases_AC && testcases_AC.length > 0) {
       executeTest(usrFiles[0]);
     }
   }
-} else {
+} 
+else {
   let pattern = workingDir + '/**/*.usr';
   let usrFiles = globby.sync(pattern);
   for (let usrFile of usrFiles) {
