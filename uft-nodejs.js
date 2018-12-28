@@ -3,8 +3,8 @@ const path = require('path');
 const { execSync } = require('child_process');
 
 // this is the path to the qtp.vbs script
-// NOTE: change the qtp script path to reflect the actual path in your host machine
-let qtpScriptPath = 'D:\\agentctl-2.2.1\\build\\qautomation\\lib\\bin\\qtp.vbs';
+// NOTE: change the path to qtp.vbs script to reflect the actual path in your host machine
+let qtpScriptPath = 'C:\\qtest\\agentctl-2.2.1\\build\\qautomation\\lib\\bin\\qtp.vbs';
 
 let workingDir = process.env.WORKING_DIR;
 console.log('--- Working directory: ', workingDir);
