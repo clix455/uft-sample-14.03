@@ -44,7 +44,7 @@ function scanUFTProjects(dir) {
     let stat = fs.lstatSync(filePath);
 
     if (stat.isDirectory()) {
-      // scan the folderrecursively
+      // scan the folder recursively
       scanUFTProjects(filePath);
     } else if (filePath.indexOf(UFT_PROJECT_EXTENSION) >= 0) {
       // it's the .usr file, add it to usrFiles variable
