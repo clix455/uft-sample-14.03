@@ -83,16 +83,19 @@ if (usrFiles.length <= 0) {
  * Case 2: the value of testcases_AC is empty, meaning no test runs being scheduled (e.g. the Universal Agent is executed in the first time)
  *   -- scan and executes all the .usr scripts located in the working directory
  */
-
 if (testcases_AC && testcases_AC.length > 0) {
   for (let testcase_AC of testcases_AC) {
     let scheduledProject = testcase_AC + UFT_PROJECT_EXTENSION;
+    // find the .usr script that matches the automation content
     let foundTests = usrFiles.filter(p => p.indexOf(scheduledProject) >= 0);
+    // if found, execute it
     if (foundTests.length > 0) {
       executeTest(foundTests[0]);
     }
   }
 } else {
+  // there is no test runs being scheduled. execute every UFT script 
+  // whose path is stored in the `usrFiles` var, one after another
   for (let usrFile of usrFiles) {
     executeTest(usrFile);
   }
