@@ -6,7 +6,7 @@ const UFT_PROJECT_EXTENSION = '.usr';
 
 // this is the path to the qtp.vbs script
 // NOTE: change the path to qtp.vbs script to reflect the actual path in your host machine
-let qtpScriptPath = 'D:/agentctl-2.2.1/build/qautomation/lib/bin/qtp.vbs';
+let qtpScriptPath = 'c:/qtest/agentctl-2.2.1/build/qautomation/lib/qtp.vbs';
 
 let workingDir = process.env.WORKING_DIR || '';
 workingDir = workingDir.replace(/\\/g, "/");
@@ -32,10 +32,11 @@ fs.mkdirSync(resultsFolder);
 // Example values $TESTCASES_AC: LoginFlights.usr,Sample1.usr,Sample2.usr
 let testcases_AC = $TESTCASES_AC ? $TESTCASES_AC.split(',') : [];
 
+// this variable stored all the usr files in a specific folder
 let usrFiles = [];
 
-// This function scans all usr file paths of UFT on working directory
-
+// this function recursively scans all .usr files inside a folder and its sub-sfolder
+// then store full path of every found .usr file in the variable `usrFiles`
 function scanUFTProjects(dir) {
   let files = fs.readdirSync(dir);
   for (let i = 0; i < files.length; i++) {
@@ -43,16 +44,17 @@ function scanUFTProjects(dir) {
     let stat = fs.lstatSync(filePath);
 
     if (stat.isDirectory()) {
+      // scan the folderrecursively
       scanUFTProjects(filePath);
     } else if (filePath.indexOf(UFT_PROJECT_EXTENSION) >= 0) {
+      // it's the .usr file, add it to usrFiles variable
       usrFiles.push(filePath);
     };
   };
 };
 
-// This function executes a specific UFT script (the .usr file), what it does is to launch a
-// separate process to executes qtp.vbs script defined in the variable qtpScriptPath
-
+// This function kicks off a specific UFT script (the .usr file). What it does is to launch a
+// separate process to executes qtp.vbs script defined in the variable `qtpScriptPath`
 function executeTest(usrFile) {
   let projectName = path.basename(usrFile, UFT_PROJECT_EXTENSION);
   let uftProjectPath = path.resolve(usrFile, '..');
@@ -75,10 +77,10 @@ if (usrFiles.length <= 0) {
 }
 
 /**
- * Kick off UFT test. What it does is to resolve the value of `testcases_AC` variable and validate:
- * Case 1: if that variable has value(s) meaning then there is/are test run(s) being scheduled in qTest Manager
- *   -- executes the .usr script identified by the automation content
- * Case 2: the value of testcases_AC is empty meaning no test runs being scheduled: 
+ * Kicks off UFT test. What it does is to resolve the value of `testcases_AC` variable and validate:
+ * Case 1: if that variable has value(s), meaning there is/are test run(s) being scheduled in qTest Manager
+ *   -- executes the .usr script whose name matching the automation content
+ * Case 2: the value of testcases_AC is empty, meaning no test runs being scheduled (e.g. the Universal Agent is executed in the first time)
  *   -- scan and executes all the .usr scripts located in the working directory
  */
 
