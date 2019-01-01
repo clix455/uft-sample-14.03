@@ -78,10 +78,10 @@ if (usrFiles.length <= 0) {
 
 /**
  * Kicks off UFT test. What it does is to resolve the value of `testcases_AC` variable and validate:
- * Case 1: if that variable has value(s), meaning there is/are test run(s) being scheduled in qTest Manager
+ * Case 1: if that variable has value, meaning there is/are test run(s) being scheduled in qTest Manager
  *   -- executes the .usr script whose name matching the automation content
- * Case 2: the value of testcases_AC is empty, meaning no test runs being scheduled (e.g. the Universal Agent is executed in the first time)
- *   -- scan and executes all the .usr scripts located in the working directory
+ * Case 2: the value of testcases_AC is empty, meaning no test runs being scheduled when the Universal Agent is executed in the first time
+ *   -- executes all the .usr scripts found inside the working directory
  */
 if (testcases_AC && testcases_AC.length > 0) {
   for (let testcase_AC of testcases_AC) {
@@ -94,8 +94,8 @@ if (testcases_AC && testcases_AC.length > 0) {
     }
   }
 } else {
-  // there is no test runs being scheduled. execute every UFT script 
-  // whose path is stored in the `usrFiles` var, one after another
+  // there is no test runs being scheduled, execute every UFT script 
+  // whose path is stored in the `usrFiles` var, one by one
   for (let usrFile of usrFiles) {
     executeTest(usrFile);
   }
