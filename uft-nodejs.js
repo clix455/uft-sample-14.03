@@ -62,7 +62,9 @@ function executeTest(usrFile) {
   let projectName = path.basename(usrFile, UFT_PROJECT_EXTENSION);
   let uftProjectPath = path.resolve(usrFile, '..');
   let resultFolder = path.resolve(resultsFolder, projectName);
-  fs.mkdirSync(resultFolder);
+  if (!fs.existsSync(resultFolder)) {
+    fs.mkdirSync(resultFolder);
+  }
 
   // compose the command to be executed
   command = `cscript ${qtpScriptPath} /run-path:${uftProjectPath} /result-path:${resultFolder}`;
