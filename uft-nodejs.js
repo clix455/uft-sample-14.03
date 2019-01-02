@@ -28,9 +28,10 @@ if (fs.existsSync(resultsFolder)) {
 fs.mkdirSync(resultsFolder);
 
 // Automation content is the identifier of an automated Test Run in qTest Manager.
-// In the context of UFT, each automation content contains the name of the usr script, e.g. LoginFlights
-// We will try to get automation content(s) from magic variable TESTCASES_AC, whose values are under comma separated string
-// Example values LoginFlights.usr,Sample1.usr,Sample2.usr
+// In the context of UFT, each Test Run's automation content contains the name of the usr script, e.g. LoginFlights
+// We will try to get all automation content(s) of all the test run(s) stored in magic variable TESTCASES_AC, 
+// The value of TESTCASES_AC is under comma separated string, or empty if there is no test runs scheduled to be executed.
+// Example value of TESTCASES_AC: LoginFlights.usr,Sample1.usr,Sample2.usr
 let testcases_AC = $TESTCASES_AC;
 testcases_AC = testcases_AC ? testcases_AC.split(',') : [];
 
