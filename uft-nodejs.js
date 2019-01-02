@@ -67,7 +67,7 @@ function executeTest(usrFile) {
   }
 
   // compose the command to be executed
-  command = `cscript ${qtpScriptPath} /run-path:${uftProjectPath} /result-path:${resultFolder}`;
+  command = `cscript ${qtpScriptPath} /run-path:"${uftProjectPath}" /result-path:"${resultFolder}"`;
   // execute the test
   console.log(`*** Executing command: ${command} ***`);
   execSync(command, { stdio: 'inherit' });
