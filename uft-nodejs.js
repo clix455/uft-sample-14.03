@@ -23,7 +23,7 @@ let resultsFolder = path.resolve(`${workingDir}`, 'test-results');
 
 // create test results folder. If it already exists, deletes it and re-create it again.
 if (fs.existsSync(resultsFolder)) {
-  execSync(`rmdir /s /q ${resultsFolder}`);
+  execSync(`rmdir /s /q "${resultsFolder}"`);
 }
 fs.mkdirSync(resultsFolder);
 
