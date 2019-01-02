@@ -33,11 +33,11 @@ fs.mkdirSync(resultsFolder);
 let testcases_AC = $TESTCASES_AC;
 testcases_AC = testcases_AC ? testcases_AC.split(',') : [];
 
-// this variable stored all the usr files in a specific folder
+// this array stored all the .usr files in a specific folder
 let usrFiles = [];
 
 // this function recursively scans all .usr files inside a folder and its sub-sfolder
-// then store full path of every found .usr file in the variable `usrFiles`
+// then stores full path of every found .usr file in the array `usrFiles`
 function scanUFTProjects(dir) {
   let files = fs.readdirSync(dir);
   for (let i = 0; i < files.length; i++) {
@@ -48,7 +48,7 @@ function scanUFTProjects(dir) {
       // scan the folder recursively
       scanUFTProjects(filePath);
     } else if (filePath.indexOf(UFT_PROJECT_EXTENSION) >= 0) {
-      // it's the .usr file, add it to usrFiles variable
+      // it's the .usr file, add it to usrFiles array
       usrFiles.push(filePath);
     };
   };
