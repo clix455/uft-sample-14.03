@@ -8,7 +8,7 @@ const UFT_PROJECT_EXTENSION = '.usr';
 // NOTE: change the path to qtp.vbs script to reflect the actual path in your host machine
 let qtpScriptPath = 'c:/qtest/agentctl-2.2.1/build/qautomation/lib/qtp.vbs';
 
-// process.env.WORKING_DIR holds the value of Working Directory you configured in Universal Agent
+// process.env.WORKING_DIR holds the value of Working Directory configured in Universal Agent
 let workingDir = process.env.WORKING_DIR || '';
 workingDir = workingDir.replace(/\\/g, "/");
 console.log('--- Working directory: ', workingDir);
