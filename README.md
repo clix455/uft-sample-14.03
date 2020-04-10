@@ -1,23 +1,8 @@
 # uft-sample-14.03
-This is a sample UFT project that is supposed to be executed with UFT 14.03
-- Follow this guide to create Unified Functional Testing agent in qTest Automation Host
-- If you want to in integrate this UFT project with Universal Agent, refer to this guide [Universal.md](./Universal.md)
+This is a sample UFT project that is supposed to be kicked off by Universal Agent against UFT 14.03
 
-# Prerequisite
-1. qTest Automation Host (2.2.1 or newer) and UFT 14.03, installed on host
-2. Enable Automation Settings on qTest Manager and add mapping statuses ![enable_automation_map_status.png](/images/enable_automation_map_status.png)
-
-# How to use
-1. Clone this project to local folder, for example: C:\uft-samples\uft-sample-14.03
-2. Navigate to UI of qTest Automation Host
-3. Create an agent which is of type: Unified Functional Testing
-    - Directory: C:\uft-samples\uft-sample-14.03
-    - Include: **/*.usr
-![uft-agent.png](/images/uft-agent.png)
-
-# Note on agent configuration
-    - Value of Directory should be parent location of UFT project
-    - For example: if the location of usr file is C:\uft-samples\uft-sample-14.03\qasymphony.com\qasymphony.com.usr, then Direcory must be set to C:\uft-samples\uft-sample-14.03
+# Integration instruction
+Follow this article to [schedule and kick off UFT test with Universal Agent](https://documentation.tricentis.com/qtest/od/en/content/qtest_launch/universal_agent_user_guides/integrate_uft_with_universal_agent.htm)
         
 # How it works
 1. Scan and create test case from UFT project to qTest Manager ![scan_create_test_case.png](/images/scan_create_test_case.png)
