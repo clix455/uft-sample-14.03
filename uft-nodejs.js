@@ -6,10 +6,10 @@ const UFT_PROJECT_EXTENSION = '.usr';
 
 // this is the path to the qtp.vbs script
 // NOTE: change the path to qtp.vbs script to reflect the actual path in your host machine
-let qtpScriptPath = 'c:/qtest/agentctl-2.2.1/build/qautomation/lib/qtp.vbs';
-
+let qtpScriptPath = 'C:/qTest-Automation-Host/agentctl-2.3.6/build/qautomation/lib/qtp.vbs';
+const debugDir = 'C:/test-projects/uft-sample-14.03'
 // process.env.WORKING_DIR holds the value of Working Directory configured in Universal Agent
-let workingDir = process.env.WORKING_DIR || '';
+let workingDir = process.env.WORKING_DIR || debugDir;
 workingDir = workingDir.replace(/\\/g, "/");
 console.log('--- Working directory: ', workingDir);
 if (!fs.existsSync(workingDir)) {
@@ -32,6 +32,7 @@ fs.mkdirSync(resultsFolder);
 // We will try to get all automation content(s) of all the test run(s) stored in magic variable TESTCASES_AC, 
 // The value of TESTCASES_AC is under comma separated string, or empty if there is no test runs scheduled to be executed.
 // Example value of TESTCASES_AC: LoginFlights.usr,Sample1.usr,Sample2.usr
+let $TESTCASES_AC = '';
 let testcases_AC = $TESTCASES_AC;
 testcases_AC = testcases_AC ? testcases_AC.split(',') : [];
 
